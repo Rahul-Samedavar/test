@@ -9,6 +9,9 @@ from pydantic import BaseModel, ValidationError, Field
 
 load_dotenv() 
 key = os.getenv("GOOGLE_API_KEY", None)
+if key is None:
+    key = os.environ.get('GOOGLE_API_KEY', None)
+    
 assert key, "API KEY NoT set"
 
 context = {
