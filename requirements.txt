@@ -1,2 +1,6 @@
+langchain
+langchain-google-genai
+
+dotenv
 fastapi
 uvicorn
