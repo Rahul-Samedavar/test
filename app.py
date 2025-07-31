@@ -1,6 +1,11 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 import time
+import uvicorn
+
+import os
+
+port = int(os.environ.get("PORT", 4000))
 
 import asyncio
 from hard import get_structured_answers
@@ -28,3 +33,7 @@ async def hackrx_run(request: Request):
 @app.post("/process_and_upload")
 async def get_logs():
     return JSONResponse(content={"logs": logs})
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 4000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
